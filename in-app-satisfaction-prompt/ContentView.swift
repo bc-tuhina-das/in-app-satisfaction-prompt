@@ -39,19 +39,19 @@ struct ContentView: View {
                 Spacer()
             }
     
-            //TODO: clicking on the sides of the button don't work for it
+            //TODO: button isn't fully responsive (e.g. clicking to the right or left of the text doesn't do anything). look into potential fixes.
             HStack{
                 Button(action:printNoThanks){
                     Text("No thanks")
                 }
                 .frame(minWidth: 160, minHeight: 50)
                 .foregroundColor(Color.mainPurple)
+                //TODO: how to make the button's border thinner? (e.g. i'm able to make the corners thin with .stroke, but i don't know how to do this with .border
                 .border(Color.mainPurple)
                 .cornerRadius(5)
-                .overlay( /// apply a rounded border
+                .overlay(
                     RoundedRectangle(cornerRadius: 5)
-                        //TODO: how to make the button's border thinner?
-                        //TODO: is there a better way to style the rounded corners?
+                        //TODO: is there a better way to style a button with rounded corners, other than using overlay/stroke?
                         .stroke(Color.mainPurple, lineWidth: 2)
                 )
                 
@@ -64,7 +64,7 @@ struct ContentView: View {
                 .background(Color.mainPurple)
                 .foregroundColor(.white)
                 .cornerRadius(5)
-                .overlay( /// apply a rounded border
+                .overlay(
                     RoundedRectangle(cornerRadius: 5)
                         .stroke(Color.mainPurple, lineWidth: 2)
                 )
@@ -74,8 +74,8 @@ struct ContentView: View {
         .frame(width: getScreenBounds().width * 0.85)
         .padding()
         .border(Color.lightPurple)
-        .cornerRadius(20) /// make the background rounded
-        .overlay( /// apply a rounded border
+        .cornerRadius(20)
+        .overlay(
             RoundedRectangle(cornerRadius: 20)
                 .stroke(Color.lightPurple, lineWidth: 1)
         )
